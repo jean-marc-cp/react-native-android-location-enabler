@@ -89,6 +89,11 @@ public class RNAndroidLocationEnablerModule extends ReactContextBaseJavaModule i
         return false;
     }
 
+    @ReactMethod
+    public void isLocationEnabled(Promise promise) {
+        promise.resolve(isLocationProviderEnabled());
+    }
+
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CHECK_SETTINGS && promise != null) {
